@@ -23,14 +23,10 @@ window.onload = function(){
       todosList.innerHTML = todos.map((todo, i) => {
         return `
         <li>
+        <button type="button" class="fav">★</button>
           <input type="checkbox" data-index=${i} id="item${i}" ${todo.done ? 'checked' : ''} />
           <label for="item${i}">${todo.text}</label>
         </li>
-        <li>
-        <input type="hidden" name="rating" id="rating" />   
-<ul>
-<li  id="fav">★</li>
-</ul>
       `;
       }).join('');
     }
