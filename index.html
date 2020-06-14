@@ -7,18 +7,19 @@
 </head>
 
 <body>
-    <div id="container">
-        <h1>To Do:</h1>
-        <input type="text">
-        <button type="button">Add</button>
-        <button type="button">Clear all</button>
+    <div class="wrapper">
+        <h1>To do:</h1>
+        <form class="add-todos">
+            <input type="text" name="item" placeholder="Fill in your todos here" required>
+            <input type="submit" value="+ Add Item">
+            <button class="checkButton checkAllBtn" title="Check all items">Check all</button>
+            <button class="checkButton uncheckAllBtn" title="Uncheck all items">Uncheck All</button>
+            <button class="checkButton deleteAllBtn" title="Delete all items">Delete All</button>
+        </form>
 
-
-        <ul id="todo-list">
-            <li>Add your todos in the input field above</li>
+        <ul class="todo-list">
+            <li>Loading Todos...</li>
         </ul>
-
-
 
     </div>
 </body>
