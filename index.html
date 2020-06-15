@@ -13,16 +13,25 @@
     <div class="container">
         <h1 class="">TO DO:</h1>
         <form class="add-todos">
-            <input type="text" name="item" placeholder="Fill in your todos here" required>
-            <button type="submit" value="+ Add Item">+ Add Item</button>
-            <button class="checkButton checkAllBtn" title="Check all">Check all</button>
-            <button class="checkButton uncheckAllBtn" title="Uncheck all items">Uncheck All</button>
-            <button class="checkButton deleteAllBtn" title="Delete all items">Delete All</button>
+            <input class="todoInput" type="text" name="item" placeholder="Fill in your todos here" required>
+            <button class="btn" type="submit" value="+ Add Item">+ Add Item</button>
+            <button class="btn checkButton checkAllBtn" title="Check all">Check all</button>
+            <button class="btn checkButton uncheckAllBtn" title="Uncheck all items">Uncheck All</button>
+            <button class="btn deleteAllBtn" title="Delete all items">Delete All</button>
         </form>
+        <div class="row">
+            <div class="col">
+                <ul class="todo-list">
+                    <li>Loading Todos...</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul class="favorite">
+                    <li>Loading favorite todos</li>
+                </ul>
+            </div>
+        </div>
 
-        <ul class="todo-list">
-            <li>Loading Todos...</li>
-        </ul>
 
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
