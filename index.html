@@ -10,28 +10,42 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <h1 class="">Todos</h1>
+        </a>
+    </nav>
     <div class="container">
-        <h1 class="">TO DO:</h1>
-        <form class="add-todos">
-            <input class="todoInput" type="text" name="item" placeholder="Fill in your todos here" required>
-            <button class="btn" type="submit" value="+ Add Item">+ Add Item</button>
-            <button class="btn checkButton checkAllBtn" title="Check all">Check all</button>
-            <button class="btn checkButton uncheckAllBtn" title="Uncheck all items">Uncheck All</button>
-            <button class="btn deleteAllBtn" title="Delete all items">Delete All</button>
-        </form>
-        <div class="row">
-            <div class="col">
-                <ul class="todo-list">
-                    <li>Loading Todos...</li>
-                </ul>
-            </div>
-            <div class="col">
-                <ul class="favorite">
-                    <li>Loading favorite todos</li>
-                </ul>
-            </div>
-        </div>
 
+        <form class="addTodos-form">
+            <div class="input-group">
+                <input class="form-control todoInput" type="text" name="item" placeholder="Fill in your todos here"
+                    required>
+                <div class="input-group-append">
+                    <button class="input-group-text prio" id="basic-addon2">&#9733; prioritize</button>
+                </div>
+                <button class="btn btn-custom addBtn" type="submit" value="+ Add Item">+ Add Item</button>
+
+            </div>
+        </form>
+        <hr>
+
+        <button class="btn btn-custom checkAllBtn todoListBtns" title="Check all">Check all</button>
+        <button class="btn deleteAllBtn" title="Delete all items">Delete All</button>
+
+
+
+        <div class="prios">
+            <li>You're priorities will be listed on the top:</li>
+        </div>
+        <ul class="todo-list">
+            <li>Loading Todos...</li>
+        </ul>
+
+        <div class="todoListBtns">
+            <button class="btn btn-custom clearBtn">Remove marked todos</button>
+            <button class="btn btn-custom showPrios">Show priorities only</button>
+            <button class="btn btn-custom showAll">Show all todos</button>
+        </div>
 
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
