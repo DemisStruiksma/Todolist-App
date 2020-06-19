@@ -12,6 +12,10 @@ li  {
     font-size: 24px;
 }
 
+label {
+    padding-left: 20px;
+}
+
 hr {
     height: 10px;
 }
@@ -76,4 +80,10 @@ hr {
     margin-bottom: 20px;
     background-color: #FFD700;
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);  
+}
+
+.checkbox {
+    vertical-align: middle;
+    height: 20px;
+    width: 20px;
 }
