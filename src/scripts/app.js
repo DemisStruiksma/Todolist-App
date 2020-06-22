@@ -1,9 +1,9 @@
 window.onload = function(){
     const addItems = document.querySelector('.addBtn');
-    const itemsList = document.querySelector('.todo-list');
+    const todosList = document.querySelector('.todo-list');
     const prioList = document.querySelector('.prios')
 
-    const items = JSON.parse(localStorage.getItem('items')) || [];
+    const todos = JSON.parse(localStorage.getItem('todos')) || [];
     const prios = JSON.parse(localStorage.getItem('prios')) || [];
 
     const checkAll = document.querySelector('.checkAllBtn');
@@ -18,14 +18,14 @@ window.onload = function(){
     function addItem(e) {
       e.preventDefault();
       const text = document.querySelector(['[name=item]']).value;
-      const item = {
+      const todo = {
         text,
         done: false
       }
 
-      items.push(item);
-      populateList(items, itemsList);
-      localStorage.setItem('items', JSON.stringify(items));
+      todos.push(todo);
+      populateList(todos, todosList);
+      localStorage.setItem('todos', JSON.stringify(todos));
       form.reset();
     }
 
@@ -45,7 +45,6 @@ window.onload = function(){
     function prioritize(e) {
       e.preventDefault();
       const text = document.querySelector(['[name=item]']).value;
-
       const prio = {
         text,
         done: false
@@ -73,27 +72,34 @@ window.onload = function(){
       if (!e.target.matches('input[type=checkbox]')) return;
       const el = e.target;
       const index = el.dataset.index;
-      items[index].done = !items[index].done;
-      localStorage.setItem('items', JSON.stringify(items));
-      populateList(items, itemsList);
+      todos[index].done = !todos[index].done;
+      localStorage.setItem('todos', JSON.stringify(todos));
+      populateList(todos, todosList);
+    }
+
+    function prioToggleDone(e) {
+      if (!e.target.matches('input[type=checkbox]')) return;
+      const el = e.target;
+      const index = el.dataset.index;
+      prios[index].done = !prios[index].done;
+      localStorage.setItem('prios', JSON.stringify(prios));
       populateList2(prios, prioList);
     }
 
     function checkingAll(e) {
       e.preventDefault();
-      items.forEach(item => item.done = true);
+      todos.forEach(todo => todo.done = true);
       prios.forEach(prio => prio.done = true);
-      localStorage.setItem('items', JSON.stringify(items));
+      localStorage.setItem('todos', JSON.stringify(todos));
       localStorage.setItem('prios', JSON.stringify(prios));
-      populateList(items, itemsList);
+      populateList(todos, todosList);
       populateList2(prios, prioList);
     }
 
     function deletingAll(e) {
-      localStorage.removeItem('items');
+      localStorage.removeItem('todos');
       localStorage.removeItem('prios');
       location.reload();
-      form.classList.remove('active');
     }
 
     // this function is in progress and doesn't work yet. 
@@ -132,11 +138,11 @@ window.onload = function(){
     }
 
     function showPriosOnly(){
-      itemsList.classList.add('remove');
+      todosList.classList.add('remove');
     }
 
     function showAllTodos(){
-      itemsList.classList.remove('remove');
+      todosList.classList.remove('remove');
     }
 
     showAll.addEventListener('click', showAllTodos)
@@ -144,9 +150,10 @@ window.onload = function(){
     prioBtn.addEventListener('click', prioritize);
     clearBtn.addEventListener('click', clearTodos);
     addItems.addEventListener('click', addItem);
-    itemsList.addEventListener('click', toggleDone);
+    todosList.addEventListener('click', toggleDone);
+    prioList.addEventListener('click', prioToggleDone);
     checkAll.addEventListener('click', checkingAll);
     deleteAll.addEventListener('click', deletingAll);
-    populateList(items, itemsList);
+    populateList(todos, todosList);
     populateList2(prios, prioList);
   }
