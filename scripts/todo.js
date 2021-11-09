@@ -6,7 +6,6 @@ window.onload = function(){
     const uncheckAll = document.querySelector('.uncheckAllBtn');
     const deleteAll = document.querySelector('.deleteAllBtn');
 
-
     function addItem(e) {
       e.preventDefault();
       const text = (this.querySelector(['[name=item]'])).value;
@@ -27,17 +26,26 @@ window.onload = function(){
           <input type="checkbox" data-index=${i} id="item${i}" ${todo.done ? 'checked' : ''} />
           <label for="item${i}">${todo.text}</label>
         </li>
+        <li>
+        <input type="hidden" name="rating" id="rating" />   
+<ul>
+<li  id="fav">★</li>
+</ul>
       `;
       }).join('');
     }
 
     function toggleDone(e) {
-      if (!e.target.matches('input')) return; // skip this unless it's an input
+      if (!e.target.matches('input')) return;
       const el = e.target;
       const index = el.dataset.index;
       items[index].done = !items[index].done;
       localStorage.setItem('items', JSON.stringify(items));
       populateList(items, itemsList);
+    }
+
+    function favorite(){
+        
     }
 
     function checkingAll(e) {

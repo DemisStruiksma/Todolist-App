@@ -1,11 +1,6 @@
 {
   "watch": {
-    "build": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": "js,jsx"
-    }
+    "test": "{src,test}/*.js"
   },
   "name": "todolist",
   "version": "1.4.6",
@@ -37,6 +32,7 @@
     "rebuild-fixtures": "npm run babelify && babel-node scripts/rebuildFixtures.js",
     "prepare": "npm run babelify && babel-node scripts/build.js",
     "style": "eslint .",
+    "test": "tape test/*.js",
     "watch": "npm-watch"
   },
   "devDependencies": {

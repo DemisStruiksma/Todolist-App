@@ -3,18 +3,30 @@
 <head>
     <title>To Do</title>
     <link rel="stylesheet" href="dist/css/tailwind.css">
+    <link rel="stylesheet" href="src/styles/app.css">
     <script src="src/scripts/todo.js"></script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <h1>To do:</h1>
+    <div class="container mx-auto">
+        <h1 class="text-4xl font-semibold">TO DO:</h1>
         <form class="add-todos">
-            <input type="text" name="item" placeholder="Fill in your todos here" required>
-            <input type="submit" value="+ Add Item">
-            <button class="checkButton checkAllBtn" title="Check all items">Check all</button>
-            <button class="checkButton uncheckAllBtn" title="Uncheck all items">Uncheck All</button>
-            <button class="checkButton deleteAllBtn" title="Delete all items">Delete All</button>
+            <input
+                class="shadow appearance-none border border-blue-500 rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="text" name="item" placeholder="Fill in your todos here" required>
+            <button
+                class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                type="submit" value="+ Add Item">+ Add Item</button>
+            <button
+                class="checkButton checkAllBtn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                title="Check all items bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Check
+                all</button>
+            <button
+                class="checkButton uncheckAllBtn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                title="Uncheck all items">Uncheck All</button>
+            <button
+                class="checkButton deleteAllBtn bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
+                title="Delete all items">Delete All</button>
         </form>
 
         <ul class="todo-list">
