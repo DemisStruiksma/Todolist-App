@@ -1,2 +1,2 @@
-# TransIP Frontend Assignment
-This repo will house the frontend assignment for TransIP.
+# Todo list App
+This repo contains a todo list app, created with vanilla JS. Besides that, I've used Tailwind CSS for the styling.
