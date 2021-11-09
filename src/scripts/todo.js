@@ -2,10 +2,8 @@ window.onload = function(){
     const addItems = document.querySelector('.add-todos');
     const itemsList = document.querySelector('.todo-list');
     const items = JSON.parse(localStorage.getItem('items')) || [];
-    const checkAll = document.querySelector('.checkAllBtn');
-    const uncheckAll = document.querySelector('.uncheckAllBtn');
+    const check = document.querySelector('.checkAllBtn');
     const deleteAll = document.querySelector('.deleteAllBtn');
-
 
     function addItem(e) {
       e.preventDefault();
@@ -21,14 +19,23 @@ window.onload = function(){
     }
 
     function populateList(todos = [], todosList) {
-      todosList.innerHTML = todos.map((todo, i) => {
-        return `
-        <li>
-          <input type="checkbox" data-index=${i} id="item${i}" ${todo.done ? 'checked' : ''} />
-          <label for="item${i}">${todo.text}</label>
-        </li>
-      `;
-      }).join('');
+      if(items.length < 1) {
+        todosList.innerHTML =
+        `
+          <li>
+            No todo items have been added yet.
+          </li>
+        `;
+      } else {
+        todosList.innerHTML = todos.map((todo, i) => {
+          return `
+          <li>
+            <input type="checkbox" data-index=${i} id="item${i}" ${todo.done ? 'checked' : ''} />
+            <label for="item${i}">${todo.text}</label>
+          </li>
+        `;
+        }).join('');
+      }
     }
 
     function toggleDone(e) {
@@ -40,31 +47,29 @@ window.onload = function(){
       populateList(items, itemsList);
     }
 
-    function favorite(){
-        
-    }
-
     function checkingAll(e) {
-      items.forEach(item => item.done = true);
+      e.preventDefault()
+      items.forEach(item => {
+        if(item.done === true) {
+          item.done = false;
+          check.innerHTML = 'Check All';
+        } else {
+          item.done = true;
+          check.innerHTML = 'Uncheck All';
+        }
+      });
       localStorage.setItem('items', JSON.stringify(items));
       populateList(items, itemsList);
     }
 
-    function uncheckingAll(e) {
-      items.forEach(item => item.done = false);
-      localStorage.setItem('items', JSON.stringify(items));
-      populateList(items, itemsList);
-    }
-
-    function deletingAll(e) {
+    function deletingAll() {
       localStorage.removeItem('items');
       location.reload();
     }
 
     addItems.addEventListener('submit', addItem);
     itemsList.addEventListener('click', toggleDone);
-    checkAll.addEventListener('click', checkingAll);
-    uncheckAll.addEventListener('click', uncheckingAll);
+    check.addEventListener('click', checkingAll);
     deleteAll.addEventListener('click', deletingAll);
     populateList(items, itemsList);
 }

@@ -8,30 +8,41 @@
 </head>
 
 <body>
-    <div class="container mx-auto">
-        <h1 class="text-4xl font-semibold">TO DO:</h1>
-        <form class="add-todos">
+    <div class="container max-w-full p-10 lg:p-0 lg:max-w-2xl mx-auto mt-20 space-y-5">
+        <h1 class="text-4xl font-semibold">To Do</h1>
+        
+        <form class="add-todos flex space-x-6">
+            
             <input
                 class="shadow appearance-none border border-blue-500 rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                type="text" name="item" placeholder="Fill in your todos here" required>
-            <button
-                class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                type="submit" value="+ Add Item">+ Add Item</button>
-            <button
-                class="checkButton checkAllBtn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                title="Check all items bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Check
-                all</button>
-            <button
-                class="checkButton uncheckAllBtn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                title="Uncheck all items">Uncheck All</button>
-            <button
-                class="checkButton deleteAllBtn bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
-                title="Delete all items">Delete All</button>
+                type="text" name="item" 
+                placeholder="Fill in your todos here" 
+                required
+            >
+            
+            <div class="space-x-4">
+                <button
+                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                    type="submit" value="+ Add Item">
+                    + Add Item
+                </button>
+
+                <button
+                    class="checkButton checkAllBtn bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                    title="Check all items bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                    Check / Uncheck all
+                </button>
+
+                <button
+                    class="checkButton deleteAllBtn bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
+                    title="Delete all items">
+                    Delete All
+                </button>
+            </div> 
+            
         </form>
 
-        <ul class="todo-list">
-            <li>Loading Todos...</li>
-        </ul>
+        <ul class="todo-list bg-gray-100 p-6 text-xl"></ul>
 
     </div>
 </body>
